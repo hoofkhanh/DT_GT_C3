@@ -17,10 +17,10 @@ void xuatMang(int a[],int n){
 	}
 }
 
-void sapXepTangDan(int a[],int n){
+void sapXepGiamDan(int a[],int n){
 	for(int i=0;i<n-1;i++){
 		for(int j=i+1;j<n;j++){
-			if(a[j]<a[i]){
+			if(a[j]>a[i]){
 				int tam=a[i];
 				a[i]=a[j];
 				a[j]=tam;
@@ -33,8 +33,8 @@ int main(){
 	int n,a[100];
 	nhapManh(a,n);
 	xuatMang(a,n);
-	sapXepTangDan(a,n);
-	printf("\nMang tang dan : ");
+	sapXepGiamDan(a,n);
+	printf("\nMang giam dan : ");
 	xuatMang(a,n);
 	
 }
