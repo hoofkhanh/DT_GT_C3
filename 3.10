@@ -35,20 +35,22 @@ void sapXeptangDan(int a[],int n){
 
 void tronMang(int a[],int n_a,int b[],int n_b,int c[],int &n_c){
 	n_c=n_a+n_b;
+	sapXeptangDan(a,n_a);
+	sapXeptangDan(b,n_b);
 	int i_c=0,i_b=0,i_a=0;
 	while(i_c<n_c){
-		 if(i_a>=n_a){
+		 if(i_a==n_a){
 			c[i_c]=b[i_b];
 			i_b++;
-		}else if(i_b>=n_b){
+		}else if(i_b==n_b){
 			c[i_c]=a[i_a];
 			i_a++;
 		}else if(a[i_a]>b[i_b]){
-			c[i_c]=a[i_a];
-			i_a++;
-		}else {
 			c[i_c]=b[i_b];
 			i_b++;
+		}else {
+			c[i_c]=a[i_a];
+			i_a++;
 		}	
 			i_c++;
 	}
@@ -58,21 +60,13 @@ int main(){
 	int n_a,n_b,n_c,a[100],b[100],c[200];
 	nhapManh(a,n_a);
 	xuatMang(a,n_a);
-	sapXeptangDan(a,n_a);
-	printf("\n");
-	xuatMang(a,n_a);
 	
 	nhapManh(b,n_b);
-	xuatMang(b,n_b);
-	sapXeptangDan(b,n_b);
-		printf("\n");
 	xuatMang(b,n_b);
 	
 	tronMang(a,n_a,b,n_b,c,n_c);
 	printf("\ntron mang : ");
 	xuatMang(c,n_c);
-	sapXeptangDan(c,n_c);
-	printf("\n");
-	xuatMang(c,n_c);
+
 	
 }
