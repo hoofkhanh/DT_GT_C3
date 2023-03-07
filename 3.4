@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<math.h>
+
+void nhapManh(int a[],int &n){	
+	printf("nhap n ");
+	scanf("%d",&n);
+
+	for(int i=0;i<n;i++){
+		printf("a[%d]",i);
+		scanf("%d",&a[i]);
+	}
+}
+
+void xuatMang(int a[],int n){
+	printf("Cac gia tri da nhap : ");
+	for(int i=0;i<n;i++){
+		printf("%4d",a[i]);
+	}
+}
+
+int snt(int n){
+	if(n<2)
+		return 0;
+	for(int i=2;i<=sqrt(n);i++){
+		if(n%i==0)
+			return 0;
+	}
+	return 1;
+}
+
+void sapXepSNTtangDan(int a[],int n){
+	for(int i=0;i<n-1;i++){
+		if(snt(a[i])==1){
+			for(int j=i+1;j<n;j++){
+				if(snt(a[j])==1 && a[j]< a[i]){
+					int tam=a[i];
+					a[i]=a[j];
+					a[j]=tam;
+				}
+			}
+		}
+	}
+}
+
+
+
+int main(){
+	int n,a[100];
+	nhapManh(a,n);
+	xuatMang(a,n);
+	sapXepSNTtangDan(a,n);
+	printf("\nMang co snt giam dan : ");
+	xuatMang(a,n);
+	
+}
