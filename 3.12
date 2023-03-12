@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<math.h>
+
+
+
+void nhapManh(int a[],int &n){	
+	do{
+		printf("\nnhap n>0  va n<=100");
+		scanf("%d",&n);
+	}while(n<=0 || n>100);
+
+	for(int i=0;i<n;i++){
+		printf("a[%d]",i);
+		scanf("%d",&a[i]);	
+			int check=i;
+			for(int j=i-1;j>=0;j--){
+				if(a[check]>a[j]){
+					int tam=a[j];
+					a[j]=a[check];
+					a[check]=tam;
+					check=j;
+				}
+			}
+		}
+	}	
+
+void xuatMang(int a[],int n){
+	printf("Cac gia tri da nhap : ");
+	for(int i=0;i<n;i++){
+		printf("%4d",a[i]);
+	}
+}
+
+
+
+int main(){
+	int a[100],n;
+	nhapManh(a,n);
+	xuatMang(a,n);
+	
+
+
+	
+}
